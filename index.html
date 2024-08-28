@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* common css  */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 600px;
+            margin: 0 auto;
+        }
+        /* section css  */
+        .ck-collapsible{
+
+            border-bottom: 1px solid rgb(27 82 156 / 15%);
+            border-width: 1px 0;
+        }
+        .collapsible__title{
+            position: relative;
+            color: #000;
+            cursor: pointer;
+            padding: 25px 0;
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 24px;
+            line-height: 31px;
+            font-weight: 700;
+            text-align: left;
+            background-color: #fff;
+        }
+        .collapsible__title::after{
+            content: "+";
+            position: absolute;
+            right: 18px;
+            font-size: 20px;
+        }
+        .active::after{
+            content: "-";
+        }
+        .collapsible__content{
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400;
+            padding: 15px 0;
+            display: none;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+   <section>
+    <div class="ck-collapsible">
+        <button type="button" class="collapsible__title">Collapsible title 1</button>
+    <div class="collapsible__content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae reprehenderit itaque repellat molestias modi porro expedita eius cumque corrupti nobis!</p>
+    </div>
+    </div>
+    <div class="ck-collapsible">
+        <button type="button" class="collapsible__title">Collapsible title 1</button>
+    <div class="collapsible__content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae reprehenderit itaque repellat molestias modi porro expedita eius cumque corrupti nobis!</p>
+    </div>
+    </div>
+    <div class="ck-collapsible">
+        <button type="button" class="collapsible__title">Collapsible title 1</button>
+    <div class="collapsible__content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae reprehenderit itaque repellat molestias modi porro expedita eius cumque corrupti nobis!</p>
+    </div>
+    </div>
+    <div class="ck-collapsible">
+        <button type="button" class="collapsible__title">Collapsible title 1</button>
+    <div class="collapsible__content">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae reprehenderit itaque repellat molestias modi porro expedita eius cumque corrupti nobis!</p>
+    </div>
+    </div>
+   </section>
+
+
+
+    <script>
+        document.querySelectorAll(".collapsible__title").forEach(button => {
+            button.addEventListener("click", ()=> {
+                const content = button.nextElementSibling;
+                const isActive = button.classList.contains("active");
+
+                document.querySelectorAll(".collapsible__title").forEach(btn => {
+                    btn.classList.remove("active");
+                    btn.nextElementSibling.style.display = "none";
+                });
+
+                if(!isActive) {
+                    button.classList.add("active");
+                    content.style.display = "block"
+                }
+            })
+        })
+    </script>
+</body>
+</html>
